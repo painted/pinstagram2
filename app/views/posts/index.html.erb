@@ -1,5 +1,9 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
+
+		<% if post.image.present? %>
+			<%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %><br>
+		<% end %>
 		<%= post.title %><br>
 		<%= post.description %>
 	<% end %>

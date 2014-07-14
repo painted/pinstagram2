@@ -1,14 +1,36 @@
-<% if @posts.any? %>
-	<% @posts.each do |post| %>
-
-		<% if post.image.present? %>
-			<%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %><br>
-		<% end %>
-		<%= post.title %><br>
-		<%= post.description %><br>
-		Posted by: <%= post.user.email %>
-	<% end %>
-<% else %>
-	<h1>No posts yet</h1>
+<% unless user_signed_in? %>
+	<div class="jumbotron">
+	  <div class="container">
+	    <h1>Welcome to Painted's Mock Instagram</h1>
+	    <p>This is a simple mock Instagram type site created by Will Allen from Painted Ltd. in London, UK.  If you are interested in work by Painted Ltd. please get in touch with us.</p>
+	    <p>
+	    	<%= link_to 'Sign Up »', new_user_registration_path, class: "btn btn-primary btn-lg" %>
+	    </p>
+	  </div>
+	</div>
 <% end %>
-<%= link_to 'New post', new_post_path%>
+<div class='container'>
+	<% if @posts.any? %>
+		<div class='row'>
+			<% @posts.each do |post| %>
+				<div class='col-md-4'>
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					    <h3 class="panel-title"><%= post.title %></h3>
+					  </div>
+					  <div class="panel-body">
+					    <% if post.image.present? %>
+							<%= image_tag post.image.url(:thumb), class: 'uploaded-pic' %><br>
+						<% end %>
+						<p><%= post.description %></p>
+					  </div>
+					  <div class="panel-footer">Posted by: <%= post.user.email %></div>
+					</div>					
+				</div>
+			<% end %>
+		</div>
+	<% else %>
+		<h1>No posts yet</h1>
+	<% end %>
+<%= link_to 'New post', new_post_path, class: "btn btn-primary btn-lg"%>
+</div>

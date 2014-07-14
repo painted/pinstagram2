@@ -17,8 +17,9 @@ describe 'posts listing page' do
 	end
 
 	context 'with posts' do 
-		before do 
-			Post.create(title: 'Happy', description: 'Photo of happy kids')
+		before do
+			will = User.create(email: 'w@will.com', password: '12345678', password_confirmation: '12345678') 
+			will.posts.create(title: 'Happy', description: 'Photo of happy kids')
 		end
 		it 'should show the post' do 
 			visit '/posts'
@@ -54,6 +55,7 @@ describe 'creating posts' do
 
 		    expect(current_path).to eq posts_path
 		    expect(page).to have_content 'My new post'
+		    expect(page).to have_content 'Posted by: w@will.com'
 		    expect(page).not_to have_css 'img.uploaded-pic'
 		end
 

@@ -30,6 +30,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'devise', github: 'plataformatec/devise'
 gem 'bootstrap-sass'
+gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
 group :test, :development do 
 	gem 'rspec-rails'

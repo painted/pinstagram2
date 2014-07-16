@@ -38,12 +38,13 @@
     </div>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-
-
-	<%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
 
     <div class="container">
     	<footer>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
         	<p>&copy; Painted Ltd. 2014</p>
     	</footer>
     </div> <!-- /container -->

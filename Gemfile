@@ -31,10 +31,12 @@ gem 'aws-sdk'
 gem 'devise', github: 'plataformatec/devise'
 gem 'bootstrap-sass'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
+gem 'websocket-rails'
 
 group :test, :development do 
 	gem 'rspec-rails'
 	gem 'capybara'
+	gem 'rspec-collection_matchers'
 end
 
 group :production do 

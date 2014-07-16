@@ -16,6 +16,13 @@ describe Post do
 	      	end
 	    end
 
+	    describe 'multiple duplicate tags' do
+      		it 'uses only unique tags' do
+        		post.tag_names = 'yolo, swag, yolo'
+        		expect(post.tags.count).to eq 2
+      		end
+    	end
+
 	    describe 're-using tags' do
       		let!(:tag){ Tag.create(name: '#yolo')}
 
@@ -23,7 +30,7 @@ describe Post do
         		post.tag_names = 'yolo'
         		expect(Tag.count).to eq 1
 
-        		expect(tag.posts).to eq post
+        		expect(tag.posts).to include post
       		end
     	end
 

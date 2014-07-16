@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 describe 'tagging posts' do 
+
+	let!(:will) do
+		User.create(email: 'w@will.com', password: '12345678', password_confirmation: '12345678')
+	end
+
 	before do 
-		will = User.create(email: 'w@will.com', password: '12345678', password_confirmation: '12345678')
 		login_as will
 	end
 
@@ -17,4 +21,27 @@ describe 'tagging posts' do
 		expect(page).to have_link '#yolo'
 		expect(page).to have_link '#swag'
 	end
+
+	context 'existing posts' do 
+
+		before do
+			will.posts.create title: 'Pic1', tag_names: 'yolo', user: will
+			will.posts.create title: 'Pic2', tag_names: 'swag', user: will
+			visit '/posts' 
+		end
+
+		it 'can filter posts by tag' do	
+			click_link '#yolo'
+			expect(page).to have_css 'h1', 'posts associated with yolo'
+			expect(page).to have_content 'Pic1'
+			expect(page).not_to have_content 'Pic2'
+		end
+
+	  	it 'uses the tag name in the url' do
+		    click_link '#yolo'
+		    expect(current_path).to eq '/tags/yolo'
+		end
+	end
 end
+
+

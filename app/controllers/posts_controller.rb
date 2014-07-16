@@ -10,10 +10,15 @@ before_action :authenticate_user!, except: [:index]
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title, :description, :image, :tag_names))
+		@post = Post.new(params[:post].permit(:title, :description, :image, :tag_names, :address))
 		@post.user = current_user
 		@post.save!
 
 		redirect_to posts_path
 	end
+
+	def show
+		@post = Post.find params[:id]
+	end
+	
 end

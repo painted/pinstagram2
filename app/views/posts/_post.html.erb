@@ -9,7 +9,10 @@
 		<% end %>
 		<p><%= post.description %></p>
 		<p><% post.tags.each do |tag| %>
-			<%= link_to tag.name, tag_path(tag) %>
+			<%= link_to tag.name, tag_path(tag) %></p>
+		<% end %>
+		<% unless post.address.blank? %>
+			<p><%= link_to 'Map', post_map_path(post), class: 'btn btn-warning' %></p>
 		<% end %>
 	  </div>
 	  <div class="panel-footer">Posted by: <%= post.user.email %></div>

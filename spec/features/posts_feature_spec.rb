@@ -51,6 +51,7 @@ describe 'creating posts' do
 			visit '/posts/new'
 		    fill_in 'Title', with: 'My new post'
 		    fill_in 'Description', with: 'Lorem ipsum'
+		    fill_in 'Address', with: '25 City Road, London'
 		    click_button 'Post it!'
 
 		    expect(current_path).to eq posts_path
@@ -70,5 +71,19 @@ describe 'creating posts' do
 		    expect(current_path).to eq posts_path
 		    expect(page).to have_css 'img.uploaded-pic'
 		end
+
+		# it 'can add an address to our posts' do
+		#     visit '/posts/new'
+		#     fill_in 'Title', with: 'My new post'
+		#     fill_in 'Description', with: 'Lorem ipsum'
+		#     attach_file 'Image', Rails.root.join('spec/images/IMG_1691.jpg')
+		#     fill_in 'Tags', with: 'yolo, swag'
+		#     fill_in 'Address', with: '25 City Road, London'
+
+		#     click_button 'Post it!'
+
+		#     expect(page).to have_content '25 City Road, London'
+
+		# end
 	end
 end

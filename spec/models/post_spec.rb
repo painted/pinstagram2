@@ -51,5 +51,13 @@ describe Post do
 		    	expect(tag.name).to eq '#yolo'
 		    end
   		end
+  		describe 'multiple comma-separated tags' do
+			context 'without spaces' do
+		    	it 'adds each tag to the post' do 
+		      		post.tag_names = 'yolo,swag'
+		      		expect(post.tags.count).to eq 2
+		    	end
+		  	end
+		end
   	end
 end

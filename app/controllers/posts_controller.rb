@@ -10,7 +10,7 @@ before_action :authenticate_user!, except: [:index, :show]
 	end
 
 	def create
-		@post = Post.new(params[:post].permit(:title, :description, :image, :tag_names, :address))
+		@post = Post.new(params[:post].permit(:title, :description, :image, :tag_names, :address, :amount))
 		@post.user = current_user
 		@post.save!
 
@@ -20,5 +20,6 @@ before_action :authenticate_user!, except: [:index, :show]
 	def show
 		@post = Post.find params[:id]
 	end
+
 
 end

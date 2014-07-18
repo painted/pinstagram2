@@ -32,6 +32,8 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'bootstrap-sass'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'websocket-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'mime-types', '~>1.9'
 
 group :test, :development do 
 	gem 'rspec-rails'

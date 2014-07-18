@@ -72,6 +72,20 @@ describe 'creating posts' do
 		    expect(page).to have_css 'img.uploaded-pic'
 		end
 
+		it 'can add an amount to a post' do 
+		    visit '/posts/new'
+		    fill_in 'Title', with: 'My new post'
+		    fill_in 'Description', with: 'Lorem ipsum'
+		    fill_in 'Address', with: '25 City Road, London'
+		    attach_file 'Image', Rails.root.join('spec/images/IMG_1691.jpg')
+		    fill_in 'Amount', with: '20.00'
+
+		    click_button 'Post it!'
+
+		    expect(current_path).to eq posts_path
+		    expect(page).to have_content '$20.00'
+		end
+
 		# it 'can add an address to our posts' do
 		#     visit '/posts/new'
 		#     fill_in 'Title', with: 'My new post'

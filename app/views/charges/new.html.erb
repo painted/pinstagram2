@@ -2,13 +2,13 @@
 	<%= form_tag post_charges_path(@post) do %>
 	  <article>
 	    <label class="amount">
-	      <span>Buy print for <%= number_to_currency(post.amount) %></span>
+	      <span>Buy print for <%= number_to_currency(@post.amount) %></span>
 	    </label>
 	  </article>
 
 	  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 	          data-key="<%= Rails.application.secrets.stripe_public_key %>"
 	          data-description="A beautiful print"
-	          data-amount="<%= post.amount %>"></script>
+	          data-amount="<%= 100 * @post.amount.to_i %>"></script>
 	<% end %>
 </div>

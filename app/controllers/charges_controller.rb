@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
 
 	def create
 		@post = Post.find params[:post_id]
-		@amount = post.amount
+		@amount = 100 * @post.amount
 
 		customer = Stripe::Customer.create(
 		:email => 'example@stripe.com',
@@ -15,12 +15,14 @@ class ChargesController < ApplicationController
 
 		charge = Stripe::Charge.create(
 	    :customer    => customer.id,
-	    :amount      => @amount,
+	    :amount      => @amount.to_i,
 	    :description => "Print of #{@post.title}",
 	    :currency    => 'usd'
 	  	)
 
 	  	Order.create(user: current_user, post: @post)
+	  	flash[:notice] = 'Thanks for your order'
+	  	redirect_to '/posts'
 
 	rescue Stripe::CardError => e
 	  flash[:error] = e.message

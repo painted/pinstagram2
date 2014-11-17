@@ -4,6 +4,8 @@
 
 This was create during week 9 and 10 at the [Makers Academy] Intensive 12 Week Course.  This is similar to the well known social media site [Instagram].  You can find a working version here on [Heroku].
 
+![Pinstagram Image](https://paintedchef.com/images/Pinstagram2.png)
+
 ==========================
 ##This project is being developed in various versions:
 
@@ -80,6 +82,7 @@ Gems Used
 * [Rails 12 Factor]
 * [Heroku Secrets]
 * [Stripe]
+* [JBuilder]
 * [Omniauth Facebook] for version 13
 * [Websocket Rails] for version 15
 
@@ -94,10 +97,12 @@ Technologies Used
 * RSPEC
 * Javascript
 * Websockets
+* JSON API
 
 
 Please feel free to check out the current version in construction here: [Heroku]
 
+[JBuilder]:https://github.com/rails/jbuilder
 [Omniauth Facebook]:https://github.com/mkdynamic/omniauth-facebook
 [Stripe]:https://github.com/stripe/stripe-ruby
 [Websocket Rails]:https://github.com/websocket-rails/websocket-rails

@@ -99,6 +99,19 @@ Technologies Used
 * Websockets
 * JSON API
 
+How to run the tests
+--------------------
+
+  * From command line enter:
+```
+git clone https://github.com/painted/pinstagram2
+cd pinstagram2
+bin/rake db:create
+bin/rake db:migrate
+bin/rake db:migrate RAILS_ENV=test
+rspec
+```
+
 
 Please feel free to check out the current version in construction here: [Heroku]
 

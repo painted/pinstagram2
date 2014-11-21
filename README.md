@@ -121,7 +121,6 @@ Please feel free to check out the current version in construction here: [Heroku]
 [Websocket Rails]:https://github.com/websocket-rails/websocket-rails
 [Makers Academy]:http://www.makersacademy.com
 [Heroku]:http://pinstagram2.herokuapp.com/posts
-[Painted Ltd]:https://painted.herokuapp.com/
 [Devise]:https://github.com/plataformatec/devise
 [Bootstrap]:https://github.com/twbs/bootstrap-sass
 [Amazon Web Services S3]:http://aws.amazon.com/sdk-for-ruby/
